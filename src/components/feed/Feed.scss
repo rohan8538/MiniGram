@@ -1,0 +1,12 @@
+.feed {
+    .container {
+        display: flex;
+    }
+    .left-part {
+        flex-grow: 2;
+    }
+
+    .right-part {
+        flex-grow: 1;
+    }
+}
