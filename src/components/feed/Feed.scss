@@ -1,12 +1,25 @@
 .feed {
+    margin-top: 60px;
     .container {
         display: flex;
+        gap: 40px;
+        
     }
     .left-part {
-        flex-grow: 2;
+        flex: 2;
     }
 
     .right-part {
-        flex-grow: 1;
+        flex: 1;
+        align-content: center;
+        margin-top: 20px;
+    }
+
+    .title {
+        margin-bottom: 12px;
+    }
+
+    .suggestions {
+        margin-top: 40px;
     }
 }

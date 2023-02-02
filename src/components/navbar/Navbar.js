@@ -11,7 +11,7 @@ function Navbar() {
         <div className='container'>
             <h2 className='banner hover-link' onClick={() => navigate('/')}>MiniGram</h2>
             <div className='right-side'>
-                <div className='profile hover-link' onClick={() => navigate('/')}>
+                <div className='hover-link' onClick={() => navigate('/profile/profile')}>
                     <Avatar />
                 </div> 
             </div>

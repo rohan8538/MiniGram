@@ -9,9 +9,7 @@ function Post({post}) {
   return (
     <div className='post'>
         <div className='heading'>
-            <div className='avatar-box'>
                 <Avatar />
-            </div>
             <h4>Rohan Bhalotia</h4>
         </div>
         <div className='content'>

@@ -48,3 +48,16 @@
     max-width: 960px;
     margin-inline: auto;
   }
+
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+  }
+
+  .btn-secondary {
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-weight: bold;
+  }
