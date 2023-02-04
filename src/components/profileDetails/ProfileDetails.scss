@@ -1,0 +1,44 @@
+.profileDetails {
+    margin-top: 100px;
+    .container {
+        display: flex;
+    }
+
+    .left-part {
+        flex: 1;
+
+        .profile-img {
+            width: 140px;
+            height: 14 0px;
+            border-radius: 50%;
+        }
+    }
+
+    .right-part {
+        flex: 3;
+
+        form {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input {
+            display: block;
+            padding: 8px 16px;
+            width: 50%;
+            margin-top: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            width: fit-content;
+        }
+
+        .delete-btn {
+            margin-top: 16px;
+            background-color: red;
+        }
+    }
+}

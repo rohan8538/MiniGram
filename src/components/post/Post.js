@@ -1,4 +1,3 @@
-import React from 'react'
 import Avatar from '../avatar/Avatar'
 import './Post.scss'
 import temporaryImage from '../../assets/pexels-frans-van-heerden.jpg'
@@ -17,8 +16,8 @@ function Post({post}) {
         </div>
         <div className='footer'>
             <div className='like'>
-                <AiOutlineHeart className='icon hover-link'/>
-                <h4>6</h4>
+                <AiOutlineHeart className='icon hover-link' />
+                <h4>6 likes</h4>
             </div>
             <p className='caption'>
                 This is aurora borealis

@@ -54,10 +54,23 @@
     color: white;
     font-weight: bold;
     border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #2269d4;
   }
 
   .btn-secondary {
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
     font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: none;
   }
