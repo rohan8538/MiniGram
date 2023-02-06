@@ -29,13 +29,6 @@ axiosClient.interceptors.response.use(async (res) => {
     //console.log("statusCode:", statusCode);
     const error = data.status;
     //console.log("error:", error);
-    
-    // Incase refresh Token expires redirect to login Page.
-    if(statusCode === 401 && originalReq.url === `${process.env.REACT_APP_SERVER_BASE_URL}/auth/refreshToken`){
-        removeAccessToken(KEY_ACCESS_TOKEN);
-        window.location.replace('/login', '_self');
-        return Promise.reject(error);
-    }
 
     if(statusCode === 401 && !originalReq._retry){
         originalReq._retry = true;
@@ -46,8 +39,11 @@ axiosClient.interceptors.response.use(async (res) => {
             setAccessToken(KEY_ACCESS_TOKEN, result.data.response.accessToken);
             console.log(result);
             originalReq.headers['Authorization'] = `Bearer ${result.data.response.accessToken}`;
-
             return axios(originalReq);
+        } else {
+            removeAccessToken(KEY_ACCESS_TOKEN);
+            window.location.replace('/login', '_self');
+            return Promise.reject(error);
         }
     }
 
