@@ -4,8 +4,10 @@ import { axiosClient } from "../../utils/axiosClient";
 export const myInfo = createAsyncThunk('user/Info', async (body, thunkAPI) => {
     try {
         thunkAPI.dispatch(setLoading(true));
+
         const details = await axiosClient.get('/user/myDetails');
         console.log("Rohan", details);
+
         return details.response;
     } catch (e) {
         return Promise.reject(e);
@@ -27,9 +29,10 @@ const appConfig = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(myInfo.fulfilled, (state, action) => {
-            console.log('success', action);
+            //console.log('success', action);
+
             state.myProfile = action.payload.user;
-            console.log('success', state.myProfile);
+            //console.log('success', state.myProfile);
         })
     }
 })

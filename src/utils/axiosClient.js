@@ -19,7 +19,7 @@ axiosClient.interceptors.request.use((req) => {
 axiosClient.interceptors.response.use(async (res) => {
     const data = res.data;
     //console.log('this is response', res);
-    
+
     if(data.status === "OK"){
         return data;
     }
@@ -54,7 +54,7 @@ axiosClient.interceptors.response.use(async (res) => {
             //console.log('original req after', originalReq.headers['Authorization']);
 
             const val = await axios(originalReq);
-            //console.log('this is val', val);
+            //console.log('this is val', val.data);
 
             return val.data;
         } else {

@@ -13,7 +13,7 @@ import LoadingBar from 'react-top-loading-bar'
 function App() {
 
   const isLoading = useSelector(state => {
-    console.log(state);
+    //console.log(state);
     return state.appConfigReducer.isLoading;
   });
   const loadingRef = useRef(null);
