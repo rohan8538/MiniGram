@@ -33,7 +33,7 @@ function Login() {
           <input type="email" className="email" placeholder='abc@xyz.com' id="email"/>
           <label htmlFor='password'>Password</label>
           <input type="password" placeholder='Abc123' className="password" id='password'/>
-          <input type='submit' className='submit'/>
+          <input type='submit' className='submit' value='Login'/>
         </form>
         <p className='createAccount'>Don't have an account? Create one <Link to="/signup">SignUp</Link></p>
       </div>

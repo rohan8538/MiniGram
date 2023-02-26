@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axiosClient } from "../../utils/axiosClient";
 
-export const myInfo = createAsyncThunk('user/Info', async (body, thunkAPI) => {
+export const myInfo = createAsyncThunk('user/Info', async (_, thunkAPI) => {
     try {
         thunkAPI.dispatch(setLoading(true));
 
@@ -15,6 +15,21 @@ export const myInfo = createAsyncThunk('user/Info', async (body, thunkAPI) => {
         thunkAPI.dispatch(setLoading(false));
     }
 })
+
+export const updateMyProfile = createAsyncThunk(
+    "user/updateMyProfile",
+    async (body, thunkAPI) => {
+        try {
+            thunkAPI.dispatch(setLoading(true));
+            const details = await axiosClient.put("/user/", body);
+            return details.response;
+        } catch (error) {
+            return Promise.reject(error);
+        } finally {
+            thunkAPI.dispatch(setLoading(false));
+        }
+    }
+);
 
 const appConfig = createSlice({
     name: 'appConfig',
@@ -30,7 +45,11 @@ const appConfig = createSlice({
     extraReducers: (builder) => {
         builder.addCase(myInfo.fulfilled, (state, action) => {
             //console.log('success', action);
-
+            state.myProfile = action.payload.user;
+            //console.log('success', state.myProfile);
+        })
+        .addCase(updateMyProfile.fulfilled, (state, action) => {
+            //console.log('success', action);
             state.myProfile = action.payload.user;
             //console.log('success', state.myProfile);
         })

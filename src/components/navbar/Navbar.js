@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 function Navbar() {
 
     const navigate = useNavigate();
-    const myProfile = useSelector(state => state.appConfigReducer.myProfile)
+    const myProfile = useSelector(state => state.appConfigReducer.myProfile);
 
     function handleLogOut() {
 
@@ -18,7 +18,7 @@ function Navbar() {
         <div className='container'>
             <h2 className='banner hover-link' onClick={() => navigate('/')}>MiniGram</h2>
             <div className='right-side'>
-                <div className='hover-link' onClick={() => navigate('/profile/${myProfile?._id}')}>
+                <div className='hover-link' onClick={() => navigate(`/profile/${myProfile?._id}`)}>
                     <Avatar src={myProfile?.avatar?.url}/>
                 </div>
                 <div className='logout hover-link' onClick={handleLogOut}><RiLogoutCircleRLine /></div>
