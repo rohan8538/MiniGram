@@ -4,6 +4,7 @@ import Avatar from '../avatar/Avatar'
 import './Navbar.scss'
 import { RiLogoutCircleRLine } from 'react-icons/ri'
 import { useSelector } from 'react-redux'
+import { removeAccessToken, KEY_ACCESS_TOKEN } from '../../utils/localStorageManager'
 
 function Navbar() {
 
@@ -11,6 +12,8 @@ function Navbar() {
     const myProfile = useSelector(state => state.appConfigReducer.myProfile);
 
     function handleLogOut() {
+        removeAccessToken(KEY_ACCESS_TOKEN);
+        navigate('/login');
 
     }
   return (
