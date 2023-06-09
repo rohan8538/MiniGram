@@ -13,7 +13,8 @@ function CreatePost() {
     const dispatch = useDispatch();
 
     const [postImg, setPostImg] = useState('');
-    const [caption, setCaption] = useState(''); 
+    const [caption, setCaption] = useState('');
+
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         const fileReader = new FileReader();
@@ -29,12 +30,14 @@ function CreatePost() {
     const handleSubmit = async() => {
         try {
             dispatch(setLoading(true));
-            const result = await axiosClient.post('/post', {caption, postImg});
+            const result = await axiosClient.post('/createPost', {caption, postImg});
             console.log("this is result", result);
         } catch (error) {
-            
+            console.log("this is error", error);
         } finally {
             dispatch(setLoading(false));
+            setCaption('');
+            setPostImg('');
         }
     }
   return (
@@ -43,7 +46,7 @@ function CreatePost() {
             <Avatar src={myProfile?.avatar?.url}/>
         </div>
         <div className='right-part'>
-            <input type='text' className='captionInput' placeholder="What's on your mind?" onChange={e => setCaption(e.target.value)}/>
+            <input type='text' value={caption} className='captionInput' placeholder="What's on your mind?" onChange={e => setCaption(e.target.value)}/>
             {postImg && <div className='img-container'>
                 <img src={postImg} className='post-img' alt='post-img'/>
             </div>}
