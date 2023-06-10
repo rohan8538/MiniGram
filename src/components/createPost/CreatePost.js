@@ -6,6 +6,7 @@ import './CreatePost.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { axiosClient } from '../../utils/axiosClient'
 import { setLoading } from '../../redux/slices/appConfig'
+import { getUserProfile } from '../../redux/slices/postsSlice'
 
 function CreatePost() {
 
@@ -32,6 +33,9 @@ function CreatePost() {
             dispatch(setLoading(true));
             const result = await axiosClient.post('/createPost', {caption, postImg});
             console.log("this is result", result);
+            dispatch(getUserProfile({
+                userId: myProfile?._id
+            }));
         } catch (error) {
             console.log("this is error", error);
         } finally {

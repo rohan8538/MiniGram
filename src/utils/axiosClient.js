@@ -30,7 +30,7 @@ axiosClient.interceptors.response.use(async (res) => {
     const statusCode = data.responseCode;
     //console.log("statusCode:", statusCode);
 
-    const error = data.status;
+    const error = data.response;
     //console.log("error:", error);
     //console.log('original req outside', !!!originalReq._retry);
 
@@ -64,5 +64,9 @@ axiosClient.interceptors.response.use(async (res) => {
         }
     }
 
+    console.log('axios error: ', error)
+
+    return Promise.reject(error);
+}, async(error) => {
     return Promise.reject(error);
 });

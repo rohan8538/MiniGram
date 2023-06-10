@@ -30,18 +30,15 @@ function Profile() {
       <div className='container'>
         <div className='left-part'>
           <CreatePost />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {userProfile?.posts?.map(post => <Post key={post._id} post={post}/>)}
         </div>
         <div className='right-part'>
           <div className='profile-card'>
             <img className='user-img' src={userProfile?.avatar?.url} alt="profile pic" />
             <div className='user-name'>{userProfile?.name}</div>
             <div className='follower-info'>
-              <h4>{`${userProfile.followers.length} Followers`}</h4>
-              <h4>{`${userProfile.following.length} Following`}</h4>
+              <h4>{`${userProfile?.followers?.length} Followers`}</h4>
+              <h4>{`${userProfile?.following?.length} Following`}</h4>
             </div>
             {!isMyProfile && <button className='follow btn-primary' id='follow' onClick={() => {
               if(document.getElementById('follow').innerHTML === 'Follow') {
